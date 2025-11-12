@@ -13,7 +13,7 @@ export function saveReport(code: string, answers: Answers, scores: Scores): void
     createdAt: new Date().toISOString(),
     answers,
     scores,
-    version: 'v1'
+    version: 'v2'
   };
   
   reports[code] = report;

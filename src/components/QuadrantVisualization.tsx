@@ -54,16 +54,16 @@ export function QuadrantVisualization({ scores, interactive = false }: QuadrantV
           </div>
 
           {/* Quadrant labels */}
-          <div className="absolute top-2 left-2 text-xs font-medium text-muted-foreground">
+          <div className="absolute bottom-2 left-2 text-xs font-medium text-muted-foreground">
             Disengaged<br />Mind
           </div>
-          <div className="absolute top-2 right-2 text-xs font-medium text-muted-foreground text-right">
+          <div className="absolute top-2 left-2 text-xs font-medium text-muted-foreground">
             Skeptical<br />Explorer
           </div>
-          <div className="absolute bottom-2 left-2 text-xs font-medium text-muted-foreground">
+          <div className="absolute bottom-2 right-2 text-xs font-medium text-muted-foreground text-right">
             Faithful<br />Seeker
           </div>
-          <div className="absolute bottom-2 right-2 text-xs font-medium text-muted-foreground text-right">
+          <div className="absolute top-2 right-2 text-xs font-medium text-muted-foreground text-right">
             Integrated<br />Alchemist
           </div>
 

@@ -42,7 +42,7 @@ export interface StoredReport {
   createdAt: string;
   answers: Answers;
   scores: Scores;
-  version: 'v1';
+  version: 'v1' | 'v2';
 }
 
 export interface QuizItem {
