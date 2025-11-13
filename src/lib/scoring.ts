@@ -57,13 +57,13 @@ function getSpecificPosition(comm50: number, trust50: number, quadrant: Quadrant
   const commBand = getCommBand(comm50);
   const trustBand = getTrustBand(trust50);
   
-  // Map to specific positions based on quadrant
+  // Map to specific positions based on quadrant (IMII v2)
   const positionMap: Record<Quadrant, Record<string, Position>> = {
     "Disengaged Mind": {
-      "lowLow-lowLow": "Frozen Potential",
-      "lowHigh-lowLow": "Detached Observer",
+      "lowLow-lowLow": "Detached Observer",
+      "lowHigh-lowLow": "Overstimulated Skeptic",
       "lowLow-lowHigh": "Conditioned Thinker",
-      "lowHigh-lowHigh": "Overstimulated Skeptic"
+      "lowHigh-lowHigh": "Frozen Potential"
     },
     "Skeptical Explorer": {
       "highLow-lowLow": "Methodical Practitioner",

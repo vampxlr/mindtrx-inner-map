@@ -13,7 +13,7 @@ export function saveReport(code: string, answers: Answers, scores: Scores): void
     createdAt: new Date().toISOString(),
     answers,
     scores,
-    version: 'v2'
+    version: 'v2' // IMII v2: Updated Disengaged Mind position mappings
   };
   
   reports[code] = report;

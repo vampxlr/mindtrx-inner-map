@@ -51,14 +51,14 @@ describe('scoring', () => {
       expect(result.trust50).toBeGreaterThanOrEqual(26);
     });
 
-    it('should correctly map Frozen Potential (lowLow, lowLow)', () => {
+    it('should correctly map Detached Observer (lowLow, lowLow)', () => {
       const answers: Answers = [
         ...Array(14).fill(1), // comm_raw = 14 → comm50 = 10 (lowLow)
         ...Array(13).fill(1), // trust_raw = 13 → trust50 = 10 (lowLow)
       ];
       const result = getPosition(answers);
       expect(result.quadrant).toBe('Disengaged Mind');
-      expect(result.position).toBe('Frozen Potential');
+      expect(result.position).toBe('Detached Observer');
       expect(result.comm50).toBeLessThanOrEqual(12);
       expect(result.trust50).toBeLessThanOrEqual(12);
     });
