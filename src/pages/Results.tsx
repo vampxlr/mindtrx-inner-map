@@ -72,7 +72,7 @@ const Results = () => {
     try {
       const reportUrl = `${window.location.origin}/results?code=${code}`;
       
-      const response = await fetch('/.netlify/functions/send-email', {
+      const response = await fetch('/api/send-email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
