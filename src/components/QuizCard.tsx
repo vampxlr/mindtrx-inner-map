@@ -50,7 +50,8 @@ export function QuizCard({ item, value, onChange }: QuizCardProps) {
           {labels.map((label, i) => (
             <span
               key={i}
-              className={`text-center transition-colors leading-tight ${
+              onClick={() => onChange(i + 1)}
+              className={`text-center transition-colors leading-tight cursor-pointer hover:text-primary ${
                 value === i + 1 ? "text-primary font-medium" : ""
               }`}
               style={{ width: "20%", fontSize: "clamp(9px, 2vw, 12px)" }}
