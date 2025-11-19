@@ -79,18 +79,18 @@ const Quiz = () => {
     <div className="min-h-screen bg-background">
       <Header />
 
-      <div className="container mx-auto px-4 py-8 max-w-3xl">
-        <div className="space-y-8">
+      <div className="container mx-auto px-3 sm:px-4 py-4 sm:py-8 max-w-3xl">
+        <div className="space-y-4 sm:space-y-8">
           {/* Progress */}
           <ProgressBar current={progress} total={quizItems.length} />
 
           {/* Section Header */}
-          <Card className="glass-card p-6">
+          <Card className="glass-card p-4 sm:p-6">
             <div className="space-y-2">
-              <h2 className="text-2xl font-bold gradient-text">
+              <h2 className="text-xl sm:text-2xl font-bold gradient-text">
                 {currentSection.title}
               </h2>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-xs sm:text-sm text-muted-foreground">
                 {currentSection.description}
               </p>
             </div>
@@ -104,15 +104,17 @@ const Quiz = () => {
           />
 
           {/* Navigation */}
-          <div className="flex gap-4">
+          <div className="flex gap-2 sm:gap-4">
             <Button
               variant="outline"
               onClick={goPrev}
               disabled={isFirstQuestion}
-              className="electric-hover"
+              className="electric-hover text-sm sm:text-base"
+              size="sm"
             >
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              Previous
+              <ArrowLeft className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4" />
+              <span className="hidden xs:inline">Previous</span>
+              <span className="xs:hidden">Prev</span>
             </Button>
 
             <div className="flex-1" />
@@ -120,29 +122,30 @@ const Quiz = () => {
             {isLastQuestion ? (
               <Button
                 onClick={handleComplete}
-                className="electric-hover glow-primary"
-                size="lg"
+                className="electric-hover glow-primary text-sm sm:text-base"
+                size="sm"
               >
-                Complete Assessment
-                <CheckCircle className="ml-2 h-5 w-5" />
+                <span className="hidden sm:inline">Complete Assessment</span>
+                <span className="sm:hidden">Complete</span>
+                <CheckCircle className="ml-1 sm:ml-2 h-4 w-4 sm:h-5 sm:w-5" />
               </Button>
             ) : (
-              <Button onClick={goNext} className="electric-hover">
+              <Button onClick={goNext} className="electric-hover text-sm sm:text-base" size="sm">
                 Next
-                <ArrowRight className="ml-2 h-4 w-4" />
+                <ArrowRight className="ml-1 sm:ml-2 h-3 w-3 sm:h-4 sm:w-4" />
               </Button>
             )}
           </div>
 
           {/* Quick Navigation Dots */}
-          <div className="flex justify-center gap-2 flex-wrap">
+          <div className="flex justify-center gap-1.5 sm:gap-2 flex-wrap px-2">
             {quizItems.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
-                className={`w-2 h-2 rounded-full transition-all ${
+                className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full transition-all ${
                   index === currentIndex
-                    ? "bg-primary w-8"
+                    ? "bg-primary w-6 sm:w-8 glow-primary"
                     : index < currentIndex
                     ? "bg-primary/50"
                     : "bg-border"

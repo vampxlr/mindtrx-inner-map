@@ -69,16 +69,45 @@ const Results = () => {
 
     setSending(true);
     
-    // Simulate email sending (in production, this would call an API)
-    setTimeout(() => {
-      setSending(false);
+    try {
+      const reportUrl = `${window.location.origin}/results?code=${code}`;
+      
+      const response = await fetch('/.netlify/functions/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          reportCode: code,
+          reportUrl,
+          scores: report?.scores,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to send email');
+      }
+
       toast({
         title: "Email sent!",
         description: "Your report has been sent to your email.",
       });
       setEmail("");
       setName("");
-    }, 1000);
+    } catch (error) {
+      console.error('Email error:', error);
+      toast({
+        title: "Email failed",
+        description: error instanceof Error ? error.message : "Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setSending(false);
+    }
   };
 
   if (!report) {
