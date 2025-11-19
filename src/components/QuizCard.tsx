@@ -46,14 +46,14 @@ export function QuizCard({ item, value, onChange }: QuizCardProps) {
           className="cursor-pointer"
         />
 
-        <div className="flex justify-between text-xs text-muted-foreground px-1">
+        <div className="flex justify-between text-[10px] sm:text-xs text-muted-foreground px-1 gap-1">
           {labels.map((label, i) => (
             <span
               key={i}
-              className={`text-center transition-colors ${
+              className={`text-center transition-colors leading-tight ${
                 value === i + 1 ? "text-primary font-medium" : ""
               }`}
-              style={{ width: "20%" }}
+              style={{ width: "20%", fontSize: "clamp(9px, 2vw, 12px)" }}
             >
               {label}
             </span>
